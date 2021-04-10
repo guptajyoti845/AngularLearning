@@ -23,24 +23,26 @@ import {EditServerComponent} from './servers/edit-server/edit-server.component';
 import {ServersService} from './servers/servers.service';
 import {RouterModule, Routes} from '@angular/router';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
-const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-  {
-    path: 'users', component: UsersComponent, children: [
-      {path: ':id/:name', component: UserComponent},
-    ]
-  },
-
-  {
-    path: 'servers', component: ServersComponent, children: [
-      {path: ':id', component: ServerComponent},
-      {path: ':id/edit', component: EditServerComponent},
-    ]
-  },
-  {path: 'not-found', component: PageNotFoundComponent},
-  {path: '**', redirectTo: 'not-found'},
-];
+// const appRoutes: Routes = [
+//   {path: '', component: HomeComponent},
+//   {
+//     path: 'users', component: UsersComponent, children: [
+//       {path: ':id/:name', component: UserComponent},
+//     ]
+//   },
+//
+//   {
+//     path: 'servers', component: ServersComponent, children: [
+//       {path: ':id', component: ServerComponent},
+//       {path: ':id/edit', component: EditServerComponent},
+//     ]
+//   },
+//   {path: 'not-found', component: PageNotFoundComponent},
+//   {path: '**', redirectTo: 'not-found'},
+// ];
 
 @NgModule({
   declarations: [
@@ -62,13 +64,15 @@ const appRoutes: Routes = [
     UserComponent,
     EditServerComponent,
     ServerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+      // RouterModule.forRoot(appRoutes)
   ],
   providers: [ServersService],
   bootstrap: [AppComponent]
